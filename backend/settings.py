@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-)z9(n(yj8j&)&ke43^11ob91=b)ex$*fkk%*a)#b_g1a_bqliz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://prayerapp.onrender.com"]
+ALLOWED_HOSTS = ["https://prayerapp.onrender.com",'prayerapp.onrender.com']
 
 
 # Application definition
