@@ -1,7 +1,6 @@
 import grpc
 from concurrent import futures
 import time
-import pyaudio
 import webrtcvad
 import prayer_tracker_pb2 as pb2
 import prayer_tracker_pb2_grpc as pb2_grpc
