@@ -4,13 +4,7 @@ import time
 import prayer_tracker_pb2
 import prayer_tracker_pb2_grpc
 import webrtcvad
-import pyaudio
 
-# Constants for audio capture
-CHUNK_SIZE = 160  # Number of audio frames per chunk
-FORMAT = pyaudio.paInt16  # Audio format (16-bit PCM)
-CHANNELS = 1  # Mono audio channel
-RATE = 16000  # Audio sample rate (16 kHz)
 
 class PrayerTrackerServicer(prayer_tracker_pb2_grpc.PrayerTrackerServiceServicer):
     def __init__(self):
@@ -86,11 +80,6 @@ class PrayerTrackerServicer(prayer_tracker_pb2_grpc.PrayerTrackerServiceServicer
         minutes, seconds = divmod(duration, 60)
         hours, minutes = divmod(minutes, 60)
         return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
-
-
-    def audio_stream_generator(self, audio_stream):
-        while True:
-            yield audio_stream.read(CHUNK_SIZE)
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
