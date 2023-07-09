@@ -120,6 +120,7 @@ class StartPrayerView(APIView):
         # user_id = request.data['user_id']
         # user_id = request.data.get('user_id')
 
+        # channel = grpc.insecure_channel('localhost:80001')
         channel = grpc.insecure_channel('prayerapp.onrender.com:8001')
         stub = PrayerTrackerServiceStub(channel)
         response = stub.StartPrayer(StartPrayerRequest(user_id=user_id))
@@ -129,6 +130,7 @@ class EndPrayerView(APIView):
     def post(self, request):
         user_id = request.POST.get('user_id')
         # user_id = request.data['user_id']
+        # channel = grpc.insecure_channel('localhost:80001')
         channel = grpc.insecure_channel('prayerapp.onrender.com:8001')
         stub = PrayerTrackerServiceStub(channel)
         response = stub.EndPrayer(EndPrayerRequest(user_id=user_id))
@@ -138,6 +140,7 @@ class PrayerUpdatesView(APIView):
     def post(self, request):
         user_id = request.POST.get('user_id')
         # user_id = request.data['user_id']
+        # channel = grpc.insecure_channel('localhost:80001')
         channel = grpc.insecure_channel('prayerapp.onrender.com:8001')
         stub = PrayerTrackerServiceStub(channel)
         prayer_request = PrayerRequest(user_id=user_id)
